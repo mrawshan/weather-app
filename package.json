@@ -10,12 +10,10 @@
 	"author": "Muhammadu Rawshan",
 	"license": "ISC",
 	"devDependencies": {
-		"_comment1": "(parcel: Is a module bundler)",
 		"parcel": "^2.8.3",
 		"process": "^0.11.10"
 	},
 	"dependencies": {
-		"_comment2": "(core-js: This is for polyfilling everything else) , (lodash: To use the debounce function) , (moment: This is to get the time) , (regenerator-runtim: This is for polyfilling async await)   ",
 		"core-js": "^3.29.0",
 		"lodash": "^4.17.21",
 		"moment": "^2.29.4",
