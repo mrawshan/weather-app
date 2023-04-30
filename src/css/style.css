@@ -1,0 +1,529 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-image: linear-gradient(to bottom, #1ed0bd, #00caca, #00c3d4, #00bbdb, #18b2de);
+	height: 100%;
+	overflow: scroll;
+}
+
+.main-container {
+	max-width: 1600px;
+	height: 100vh;
+	margin: 0 auto;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.main-container-wrapper {
+	width: 100%;
+}
+
+nav .container-wrapper {
+	display: flex;
+	width: fit-content;
+	margin: 0 auto;
+	background-color: #2e9496;
+	border-radius: 20px;
+	padding: 10px;
+}
+
+form .search-field {
+	width: 40rem;
+	background-color: transparent;
+	border: 0;
+	color: white;
+}
+
+form .search-field::placeholder {
+	color: rgba(255, 255, 255, 0.6);
+	font-style: italic;
+}
+
+form .search-field:focus {
+	outline-width: 0;
+}
+
+form {
+	position: relative;
+}
+
+form .icon-search {
+	width: 20px;
+	height: 20px;
+	fill: white;
+	position: absolute;
+	right: 0;
+}
+
+nav .container-wrapper {
+	position: relative;
+}
+
+.c-f-wrapper {
+	display: inline;
+	text-align: center;
+	width: 6rem;
+	position: absolute;
+	right: -10rem;
+	/* right: 14rem; */
+	border: 0;
+	border-radius: 10px;
+	background-color: white;
+}
+
+.c-f-wrapper button {
+	border: 0;
+	background-color: unset;
+	color: rgb(161, 155, 155);
+}
+
+.slash {
+	color: black;
+	margin: 0 6px;
+}
+
+.search {
+	position: relative;
+}
+
+.city-autocomplete-table {
+	-webkit-backdrop-filter: blur(3px);
+	backdrop-filter: blur(3px);
+	background-color: #0006;
+	transition: all 0.5s;
+	position: absolute;
+	top: 35px;
+	width: 100%;
+	z-index: 1000;
+	padding: 5px;
+	min-height: 50px;
+	border-radius: 4px;
+}
+
+.city-autocomplete-table .spinner svg {
+	width: 2rem;
+	margin-bottom: unset;
+}
+
+.city-autocomplete-table .city-wrapper:hover {
+	cursor: pointer;
+	-webkit-backdrop-filter: blur(4px);
+	backdrop-filter: blur(4px);
+}
+
+.city-autocomplete-table .city-wrapper {
+	border-bottom: 1px solid rgba(250, 250, 250, 0.2);
+	padding-left: 4px;
+}
+
+.city-autocomplete-table .city-wrapper > * {
+	display: inline;
+	color: white;
+}
+
+.city-autocomplete-table .city-wrapper span {
+	font-style: italic;
+	font-weight: 200;
+}
+
+/*----------- Weather details 1 -----------*/
+.weather-d-1 {
+	margin: 70px 0;
+	color: white;
+	text-align: center;
+}
+
+/* Column 1 */
+.weather-d-1 svg {
+	fill: white;
+}
+
+.weather-d-1 .col1 .wrapper p {
+	font-size: 1.3rem;
+	margin: 0;
+}
+
+.date {
+	font-size: small;
+	font-weight: lighter;
+}
+
+.weather-d-1 .col1 .wrapper {
+	max-width: 466px;
+	margin: 0 auto;
+	position: relative;
+}
+
+.weather-d-1 .col1 .wrapper .icon-weather {
+	width: 4.5rem;
+	height: 4.5rem;
+	position: absolute;
+	top: 4px;
+	right: 6.5rem;
+}
+
+.weather-d-1 .col1 .wrapper h1 {
+	margin: 15px 0;
+	font-size: 4rem;
+}
+
+.weather-d-1 .col1 .wrapper .icon-location {
+	width: 2rem;
+	height: 2rem;
+}
+
+.place,
+.country {
+	font-size: 1.3rem;
+}
+
+/* Column 2 */
+.weather-d-1 .col2 {
+	padding-top: 20px;
+}
+
+.col2 .wrapper {
+	width: fit-content;
+	display: inline-block;
+}
+
+.col2 .wrapper p {
+	margin-bottom: 0px;
+}
+
+.circle {
+	height: 6rem;
+	width: 4rem;
+	background-color: #2e9496;
+	border-radius: 40px;
+	display: inline-block;
+	margin: 10px;
+}
+
+.circle-now {
+	border: 0.5px solid rgba(255, 255, 255, 0.1);
+	background: rgba(255, 255, 255, 0.5);
+}
+
+.col2 .wrapper {
+	position: relative;
+}
+
+.col2 .wrapper .circle svg {
+	width: 3.7rem;
+	height: 3.7rem;
+	margin-top: 9px;
+	position: relative;
+	left: 10px;
+}
+
+.col2 .wrapper .circle .degree {
+	position: absolute;
+	left: 32px;
+	bottom: 20px;
+}
+
+/*----------- Weather details 2 -----------*/
+.weather-d-2 {
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+.weather-d-2 h4 {
+	position: relative;
+	left: 0.7rem;
+	margin: 20px 0;
+	color: white;
+}
+
+.weather-d-container {
+	display: grid;
+	grid-template-columns: auto auto auto auto;
+	gap: 20px;
+	justify-content: center;
+}
+
+.weather-d-2 .card-wrapper {
+	width: 230px;
+	height: 120px;
+	border-radius: 3px;
+	background-color: #ddf5f9;
+}
+
+.weather-d-2 .content-wrapper {
+	width: 200px;
+	margin: 30px auto;
+}
+
+.weather-d-2 .content-wrapper span {
+	display: block;
+}
+
+.weather-d-2 .content-wrapper .heading {
+	color: #5c7b8b;
+	text-transform: uppercase;
+}
+
+.weather-d-2 .content-wrapper .w-detailes {
+	color: #27495c;
+	font-size: x-large;
+	font-weight: 500;
+}
+
+.weather-d-2 .content-wrapper svg {
+	width: 5rem;
+	height: 4rem;
+	fill: #27495c;
+}
+
+.card-wrapper {
+	position: relative;
+}
+
+.card-wrapper svg {
+	position: absolute;
+	right: 0;
+	bottom: 9px;
+}
+
+.overlay {
+	width: 100%;
+	height: 100%;
+	-webkit-backdrop-filter: blur(4px);
+	backdrop-filter: blur(4px);
+	z-index: 100;
+	background-color: #0006;
+	transition: all 0.5s;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+.spinner {
+	z-index: 1000;
+	fill: #fff;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.spinner svg {
+	margin-bottom: 70px;
+	width: 5rem;
+	height: 4rem;
+	animation: rotate 2s infinite linear;
+}
+
+@keyframes rotate {
+	0% {
+		transform: rotate(0);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+/*----------- common -----------*/
+
+.active {
+	color: #00bbdb !important;
+}
+
+.container-wrapper {
+	width: fit-content;
+	margin: 0 auto;
+}
+
+hr {
+	color: white;
+}
+
+.main-container {
+	position: relative;
+}
+
+.error {
+	background-image: linear-gradient(to bottom, #1ed0bd, #00caca, #00c3d4, #00bbdb, #18b2de);
+	width: 60%;
+	border-radius: 20px;
+	position: absolute;
+	top: 50%;
+	right: 50%;
+	transform: translate(50%, -50%);
+	z-index: 1000;
+}
+
+.error p {
+	margin: 0;
+	padding: 100px 20px;
+	text-align: center;
+	font-size: 20px;
+	color: white;
+	font-style: italic;
+}
+
+.city-autocomplete-error {
+	text-align: center;
+}
+
+.city-autocomplete-error p {
+	margin-bottom: 0;
+	padding-top: 7px;
+	color: white;
+	font-size: 20px;
+	font-style: italic;
+}
+
+.hidden {
+	visibility: hidden;
+	opacity: 0;
+}
+
+.unit-main {
+	font-size: 1.1rem;
+	position: relative;
+	bottom: 35px;
+	left: 2px;
+}
+
+.unit-secondary {
+	font-size: 0.6rem;
+	position: relative;
+	bottom: 6px;
+	left: 1px;
+}
+
+.unit-secondary-w-d-2 {
+	font-size: 0.9rem;
+	position: relative;
+	bottom: 10px;
+	left: 0px;
+}
+
+/*----------- Media Queries -----------*/
+@media screen and (max-width: 1350px) {
+	.weather-d-1 .col1 .wrapper .icon-weather {
+		right: 4.5rem;
+	}
+}
+
+@media screen and (max-width: 1159px) {
+	.weather-d-1 .col1 .wrapper .icon-weather {
+		right: 3.5rem;
+	}
+}
+
+@media screen and (max-width: 1063px) {
+	.weather-d-1 .col1 .wrapper .icon-weather {
+		right: 2.5rem;
+	}
+
+	.weather-d-1 .col2 {
+		padding-top: 0px;
+	}
+
+	.main-container {
+		height: 100%;
+	}
+
+	.weather-d-container {
+		grid-template-columns: auto auto;
+	}
+
+	nav {
+		margin-top: 3rem;
+	}
+
+	.weather-d-2 {
+		margin-bottom: 3rem;
+	}
+
+	.weather-d-2 h4 {
+		position: unset;
+		text-align: center;
+	}
+
+	.error {
+		top: 37%;
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	form .search-field {
+		width: 28rem;
+	}
+
+	.weather-d-1 .col1 .wrapper .icon-weather {
+		right: 1.5rem;
+	}
+}
+
+@media screen and (max-width: 850px) {
+	form .search-field {
+		width: 28rem;
+	}
+
+	.weather-d-1 .col1 .wrapper .icon-weather {
+		right: 3px;
+	}
+
+	.c-f-wrapper {
+		top: 5rem;
+		right: 50%;
+		transform: translate(50%, -50%);
+	}
+
+	.weather-d-1 {
+		margin: 108px 0px 20px;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.weather-d-1 .col1 .wrapper .icon-weather {
+		right: 7rem;
+	}
+
+	.weather-d-1 .col1 .wrapper {
+		margin-bottom: 4rem;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	form .search-field {
+		width: 17rem;
+	}
+
+	.weather-d-1 .col1 .wrapper .icon-weather {
+		right: 6rem;
+	}
+
+	.weather-d-container {
+		grid-template-columns: auto;
+	}
+
+	.error {
+		top: 22%;
+	}
+}
+
+@media screen and (max-width: 417px) {
+	.weather-d-1 .col1 .wrapper .icon-weather {
+		right: 4rem;
+	}
+}
+
+@media screen and (max-width: 350px) {
+	.weather-d-1 .col1 .wrapper .icon-weather {
+		right: 3rem;
+	}
+}
