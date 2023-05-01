@@ -108,6 +108,14 @@ nav .container-wrapper {
 	border-radius: 4px;
 }
 
+.city-autocomplete-table .spinner {
+	z-index: 1000;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
 .city-autocomplete-table .spinner svg {
 	width: 2rem;
 	margin-bottom: unset;
@@ -309,30 +317,16 @@ nav .container-wrapper {
 	left: 0;
 }
 
-.spinner {
+.main-spinner {
 	z-index: 1000;
-	fill: #fff;
-	position: absolute;
+	position: fixed;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
 
-.spinner svg {
+.main-spinner svg {
 	margin-bottom: 70px;
-	width: 5rem;
-	height: 4rem;
-	animation: rotate 2s infinite linear;
-}
-
-@keyframes rotate {
-	0% {
-		transform: rotate(0);
-	}
-
-	100% {
-		transform: rotate(360deg);
-	}
 }
 
 /*----------- common -----------*/
@@ -410,6 +404,32 @@ hr {
 	position: relative;
 	bottom: 10px;
 	left: 0px;
+}
+
+.spinner {
+	/* z-index: 1000; */
+	fill: #fff;
+	/* position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%); */
+}
+
+.spinner svg {
+	/* margin-bottom: 70px; */
+	width: 5rem;
+	height: 4rem;
+	animation: rotate 2s infinite linear;
+}
+
+@keyframes rotate {
+	0% {
+		transform: rotate(0);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
 }
 
 /*----------- Media Queries -----------*/
@@ -497,6 +517,10 @@ hr {
 
 	.weather-d-1 .col1 .wrapper {
 		margin-bottom: 4rem;
+	}
+
+	.error {
+		width: 90%;
 	}
 }
 

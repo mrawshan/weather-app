@@ -28,7 +28,7 @@ export default class View {
 		const markup = `
 			<div class="spinner-wrapper">
 				<div class="overlay"></div>
-				<div class="spinner">
+				<div class="main-spinner spinner">
 					<svg>
 						<use href="${icons}#icon-loader"></use>
 					</svg>
