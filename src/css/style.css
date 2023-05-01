@@ -173,6 +173,8 @@ nav .container-wrapper {
 .weather-d-1 .col1 .wrapper h1 {
 	margin: 15px 0;
 	font-size: 4rem;
+	position: relative;
+	left: 8px;
 }
 
 .weather-d-1 .col1 .wrapper .icon-location {
@@ -310,7 +312,7 @@ nav .container-wrapper {
 .spinner {
 	z-index: 1000;
 	fill: #fff;
-	position: fixed;
+	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);

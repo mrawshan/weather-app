@@ -66,7 +66,7 @@ const controlCFButtons = async function (unit) {
 };
 
 const init = function () {
-	// controlCLWI();
+	controlCLWI();
 	searchView.addHandlerkeyPress(controlCityAutocomplete);
 	searchView.addHandlerSelect(controlSelectResults);
 	searchView.addHandlerEnter();
