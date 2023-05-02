@@ -543,6 +543,14 @@ hr {
 	.error {
 		top: 22%;
 	}
+
+	.weather-d-2 .card-wrapper {
+		width: 300px;
+	}
+
+	.weather-d-2 .content-wrapper {
+		margin-left: 20px;
+	}
 }
 
 @media screen and (max-width: 417px) {
