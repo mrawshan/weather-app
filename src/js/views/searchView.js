@@ -144,9 +144,9 @@ class SearchView {
 		this._cityAutocompleteTable.insertAdjacentHTML('afterbegin', markup);
 	}
 
-	// Change placeholder text in screen size 500px
+	// Change placeholder text in screen size 767px
 	changeplaceholderText = function () {
-		let mql = window.matchMedia('(max-width: 500px)');
+		let mql = window.matchMedia('(max-width: 767px)');
 		if (mql.matches) this._parentElement.querySelector('.search-field').placeholder = 'Type city name here';
 	};
 }

@@ -47,8 +47,20 @@ form .search-field::placeholder {
 	font-style: italic;
 }
 
-form .search-field:focus {
+/*--- To remove the input out line ---*/
+/* form .search-field:focus {
 	outline-width: 0;
+} */
+
+/* input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+	outline: none;
+} */
+
+*:focus {
+	outline: none;
 }
 
 form {
@@ -61,6 +73,7 @@ form .icon-search {
 	fill: white;
 	position: absolute;
 	right: 0;
+	top: 0;
 }
 
 nav .container-wrapper {
@@ -90,9 +103,9 @@ nav .container-wrapper {
 	margin: 0 6px;
 }
 
-.search {
+/* .search {
 	position: relative;
-}
+} */
 
 .city-autocomplete-table {
 	-webkit-backdrop-filter: blur(3px);
@@ -407,16 +420,10 @@ hr {
 }
 
 .spinner {
-	/* z-index: 1000; */
 	fill: #fff;
-	/* position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%); */
 }
 
 .spinner svg {
-	/* margin-bottom: 70px; */
 	width: 5rem;
 	height: 4rem;
 	animation: rotate 2s infinite linear;
