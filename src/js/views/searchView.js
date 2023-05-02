@@ -89,6 +89,10 @@ class SearchView {
 	addHandlerSelect(handler) {
 		this._cityAutocompleteTable.addEventListener('click', (e) => {
 			let city;
+
+			let cfActiveButton = document.querySelector('.active');
+			const unit = cfActiveButton.textContent === 'C' ? TEMP_IN_C : TEMP_IN_F; // Check the current active button (C or F)
+
 			const clickedElement = e.target.classList.contains('city-wrapper') || e.target.classList.contains('city') || e.target.classList.contains('city-country');
 			if (!clickedElement) return;
 
@@ -106,7 +110,8 @@ class SearchView {
 
 			this._clearInput();
 			this._cityAutocompleteTable.classList.add('hidden');
-			handler(city);
+
+			handler(city, unit);
 		});
 	}
 

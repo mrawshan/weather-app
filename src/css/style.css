@@ -103,10 +103,6 @@ nav .container-wrapper {
 	margin: 0 6px;
 }
 
-/* .search {
-	position: relative;
-} */
-
 .city-autocomplete-table {
 	-webkit-backdrop-filter: blur(3px);
 	backdrop-filter: blur(3px);
@@ -195,7 +191,7 @@ nav .container-wrapper {
 	margin: 15px 0;
 	font-size: 4rem;
 	position: relative;
-	left: 8px;
+	left: 10px;
 }
 
 .weather-d-1 .col1 .wrapper .icon-location {

@@ -38,11 +38,11 @@ const controlCityAutocomplete = async function () {
 };
 
 // Search to get the weather information
-const controlSelectResults = async function (city) {
+const controlSelectResults = async function (city, unit) {
 	try {
 		pageMainContainer.renderSpinner();
-		await model.currentWeather(city);
-		await model.threeHourForecast(city);
+		await model.currentWeather(city, unit);
+		await model.threeHourForecast(city, unit);
 		weatherDataOne.render(model.state.weatherInfo);
 		weatherDataTwo.render(model.state.weatherInfo);
 		pageMainContainer.clearSpinner();
