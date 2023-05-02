@@ -8,7 +8,7 @@ Additionally, this app allows you to choose between Celsius and Fahrenheit for t
 
 The application was constructed using HTML, CSS, Bootstrap, JavaScript, API, and NPM, following the MVC architecture.
 
-#### NPM Pacakages are
+#### NPM Packages are
 
 -  devDependencies:
 
