@@ -4,7 +4,7 @@ The following is a weather app that offers weather data.
 It has the ability to display the weather for your present location, and you can also search for weather information for any city.
 Additionally, this app allows you to choose between Celsius and Fahrenheit for the weather information.
 
-### How I build This App?
+### How I Built This App?
 
 The application was constructed using HTML, CSS, JavaScript, API, and NPM, following the MVC architecture.
 
