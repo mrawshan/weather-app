@@ -1,6 +1,7 @@
 import { async } from 'regenerator-runtime';
 import { CURRENT_WEATHER_URL, THREE_HOUR_FORECAST_URL, WEATHER_ICON_URL, WEATHER_ICON_SIZE, KEY, TEMP_IN_C, TEMP_IN_F } from './config.js';
 import { reverseGeocoding, todayDate, time, threeHourForecastTime, weatherIcon, getRegionName } from './helpers.js';
+import { citySuggestionApiKey } from './apiKey.js';
 
 export const state = {
 	currentLocation: {},
@@ -93,7 +94,7 @@ export const citySearch = async function (query) {
 
 		const responce = await fetch(`https://api.api-ninjas.com/v1/city?name=${query}&limit=5`, {
 			method: 'GET',
-			headers: { 'X-Api-Key': 'ldZBfJ2XvLjLe+sbVqVbEw==XrR7maLjwNPhbNX8' },
+			headers: { 'X-Api-Key': `${citySuggestionApiKey}` },
 			contentType: 'application/json',
 		});
 
