@@ -31,16 +31,17 @@ export const currentLocation = async function () {
 		const data = await responce.json();
 		if (!responce.ok) throw new Error(`${data.message} (${responce.status})`);
 		state.currentLocation.city = data.city;
+		state.currentLocation.countryCode = data.countryCode;
 	} catch (err) {
 		throw err;
 	}
 };
 
 // Get the current weather info
-export const currentWeather = async function (city, unit = TEMP_IN_C) {
+export const currentWeather = async function (city, countryCode, unit = TEMP_IN_C) {
 	try {
 		// Get the current weather detiles
-		const responce = await fetch(`${CURRENT_WEATHER_URL}${city}${KEY}${unit}`);
+		const responce = await fetch(`${CURRENT_WEATHER_URL}${city},${countryCode}${KEY}${unit}`);
 		const data = await responce.json();
 
 		// Creating the currentWeatherD object based on the data
@@ -65,9 +66,9 @@ export const currentWeather = async function (city, unit = TEMP_IN_C) {
 };
 
 // Get the three hour forecast weather info
-export const threeHourForecast = async function (city, unit = TEMP_IN_C) {
+export const threeHourForecast = async function (city, countryCode, unit = TEMP_IN_C) {
 	try {
-		const responce = await fetch(`${THREE_HOUR_FORECAST_URL}${city}${KEY}${unit}`);
+		const responce = await fetch(`${THREE_HOUR_FORECAST_URL}${city},${countryCode}${KEY}${unit}`);
 		const data = await responce.json();
 
 		// Creating the threeHourForecastD array of object based on the data.list

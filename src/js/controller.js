@@ -14,8 +14,8 @@ const controlCLWI = async function () {
 	try {
 		pageMainContainer.renderSpinner(); // Rendering the spinner on the page main container
 		await model.currentLocation();
-		await model.currentWeather(model.state.currentLocation.city);
-		await model.threeHourForecast(model.state.currentLocation.city);
+		await model.currentWeather(model.state.currentLocation.city, model.state.currentLocation.countryCode);
+		await model.threeHourForecast(model.state.currentLocation.city, model.state.currentLocation.countryCode);
 		weatherDataOne.render(model.state.weatherInfo);
 		weatherDataTwo.render(model.state.weatherInfo);
 		pageMainContainer.clearSpinner();
