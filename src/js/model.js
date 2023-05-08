@@ -26,12 +26,8 @@ export const currentLocation = async function () {
 	try {
 		const pos = await getPosition();
 		const { latitude: lat, longitude: lng } = pos.coords;
-		// const responce = await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}&localityLanguage=en`);
-
-		const responce = await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=51.9449&longitude=0.8787&localityLanguage=en`);
+		const responce = await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}&localityLanguage=en`);
 		const data = await responce.json();
-
-		console.log(data);
 
 		if (!responce.ok) throw new Error(`${data.message} (${responce.status})`);
 		state.currentLocation.city = data.city;
