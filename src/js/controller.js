@@ -54,9 +54,10 @@ const controlSelectResults = async function (latitude, longitude, unit) {
 // Controller for C / F button
 const controlCFButtons = async function (unit) {
 	try {
+		console.log(model.state);
 		pageMainContainer.renderSpinner();
-		await model.currentWeather(model.state.weatherInfo.currentWeatherD.latitude, unit);
-		await model.threeHourForecast(model.state.weatherInfo.currentWeatherD.longitude, unit);
+		await model.currentWeather(model.state.weatherInfo.currentWeatherD.latitude, model.state.weatherInfo.currentWeatherD.longitude, unit);
+		await model.threeHourForecast(model.state.weatherInfo.currentWeatherD.latitude, model.state.weatherInfo.currentWeatherD.longitude, unit);
 		weatherDataOne.render(model.state.weatherInfo);
 		weatherDataTwo.render(model.state.weatherInfo);
 		pageMainContainer.clearSpinner();

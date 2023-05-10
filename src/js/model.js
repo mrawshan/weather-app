@@ -52,8 +52,8 @@ export const currentWeather = async function (latitude, longitude, unit = TEMP_I
 		state.weatherInfo.currentWeatherD = {
 			date: todayDate(data.dt),
 			temp: Math.round(data.main.temp),
-			latitude: data.lat,
-			longitude: data.lon,
+			latitude: data.coord.lat,
+			longitude: data.coord.lon,
 			city: data.name,
 			country: getRegionName(data.sys.country),
 			icon: weatherIcon(data.weather[0]),
