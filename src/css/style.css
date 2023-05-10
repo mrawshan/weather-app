@@ -9,7 +9,7 @@ body {
 	background-attachment: fixed;
 	background-image: linear-gradient(to bottom, #1ed0bd, #00caca, #00c3d4, #00bbdb, #18b2de);
 	height: 100%;
-	overflow: scroll;
+	/* overflow: scroll; */
 }
 
 .main-container {
