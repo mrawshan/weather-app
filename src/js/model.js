@@ -37,7 +37,6 @@ export const currentLocation = async function () {
 		state.currentLocation.latitude = pos.coords.latitude;
 		state.currentLocation.longitude = pos.coords.longitude;
 	} catch (err) {
-		console.log(err);
 		throw err;
 	}
 };
