@@ -21,33 +21,39 @@ const getPosition = function () {
 	});
 };
 
-// Reverse Geocoding using let and lng to get the country name
+// Reverse Geocoding using let and lng to get the country name (I removed Reverse Geocoding)
+// So the weather information will get based on latitude and longitude
 export const currentLocation = async function () {
 	try {
 		const pos = await getPosition();
-		const { latitude: lat, longitude: lng } = pos.coords;
-		const responce = await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}&localityLanguage=en`);
-		const data = await responce.json();
 
-		if (!responce.ok) throw new Error(`${data.message} (${responce.status})`);
-		state.currentLocation.city = data.city;
-		state.currentLocation.countryCode = data.countryCode;
+		// const { latitude: lat, longitude: lng } = pos.coords;
+		// const responce = await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}&localityLanguage=en`);
+		// const data = await responce.json();
+		// if (!responce.ok) throw new Error(`${data.message} (${responce.status})`);
+		// state.currentLocation.city = data.city;
+		// state.currentLocation.countryCode = data.countryCode;
+
+		state.currentLocation.latitude = pos.coords.latitude;
+		state.currentLocation.longitude = pos.coords.longitude;
 	} catch (err) {
 		throw err;
 	}
 };
 
 // Get the current weather info
-export const currentWeather = async function (city, countryCode, unit = TEMP_IN_C) {
+export const currentWeather = async function (latitude, longitude, unit = TEMP_IN_C) {
 	try {
 		// Get the current weather detiles
-		const responce = await fetch(`${CURRENT_WEATHER_URL}${city},${countryCode}${KEY}${unit}`);
+		const responce = await fetch(`${CURRENT_WEATHER_URL}lat=${latitude}&lon=${longitude}${KEY}${unit}`);
 		const data = await responce.json();
 
 		// Creating the currentWeatherD object based on the data
 		state.weatherInfo.currentWeatherD = {
 			date: todayDate(data.dt),
 			temp: Math.round(data.main.temp),
+			latitude: data.lat,
+			longitude: data.lon,
 			city: data.name,
 			country: getRegionName(data.sys.country),
 			icon: weatherIcon(data.weather[0]),
@@ -66,9 +72,9 @@ export const currentWeather = async function (city, countryCode, unit = TEMP_IN_
 };
 
 // Get the three hour forecast weather info
-export const threeHourForecast = async function (city, countryCode, unit = TEMP_IN_C) {
+export const threeHourForecast = async function (latitude, longitude, unit = TEMP_IN_C) {
 	try {
-		const responce = await fetch(`${THREE_HOUR_FORECAST_URL}${city},${countryCode}${KEY}${unit}`);
+		const responce = await fetch(`${THREE_HOUR_FORECAST_URL}lat=${latitude}&lon=${longitude}${KEY}${unit}`);
 		const data = await responce.json();
 
 		// Creating the threeHourForecastD array of object based on the data.list
@@ -104,15 +110,14 @@ export const citySearch = async function (query) {
 		const cityNameStartWith = data.some((city) => city.name.startsWith(queryStartWith));
 		if (data.length === 0 || !cityNameStartWith) throw new Error(`There are no cities for your search!`);
 
-		// const cityNameStartWith = data.some((city) => city.name.startsWith(queryStartWith));
-		// if (!cityNameStartWith) throw new Error(`There are no cities for your search!`);
-
 		state.search.cities = data
 			.filter(function (city) {
 				return city.name.startsWith(queryStartWith);
 			})
 			.map((city) => {
 				return {
+					latitude: city.latitude,
+					longitude: city.longitude,
 					name: city.name,
 					country: getRegionName(city.country),
 				};

@@ -27,7 +27,7 @@ class SearchView {
 				(city) =>
 					`
 				<div class="city-wrapper">
-					<li class="city">${city.name}</li>
+					<li class="city" data-latitude=${city.latitude} data-longitude=${city.longitude}>${city.name}</li>
 					<span class="city-country">- ${city.country}</span>
 				</div>
 			`
@@ -88,7 +88,7 @@ class SearchView {
 
 	addHandlerSelect(handler) {
 		this._cityAutocompleteTable.addEventListener('click', (e) => {
-			let city;
+			let latitude, longitude;
 
 			let cfActiveButton = document.querySelector('.active');
 			const unit = cfActiveButton.textContent === 'C' ? TEMP_IN_C : TEMP_IN_F; // Check the current active button (C or F)
@@ -98,20 +98,23 @@ class SearchView {
 
 			switch (e.target.className) {
 				case 'city-wrapper':
-					city = e.target.firstElementChild.textContent;
+					latitude = e.target.firstElementChild.dataset.latitude;
+					longitude = e.target.firstElementChild.dataset.longitude;
 					break;
 				case 'city':
-					city = e.target.textContent;
+					latitude = e.target.dataset.latitude;
+					longitude = e.target.dataset.longitude;
 					break;
 				case 'city-country':
-					city = e.target.previousElementSibling.textContent;
+					latitude = e.target.previousElementSibling.dataset.latitude;
+					longitude = e.target.previousElementSibling.dataset.longitude;
 					break;
 			}
 
 			this._clearInput();
 			this._cityAutocompleteTable.classList.add('hidden');
 
-			handler(city, unit);
+			handler(latitude, longitude, unit);
 		});
 	}
 

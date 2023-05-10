@@ -14,8 +14,8 @@ const controlCLWI = async function () {
 	try {
 		pageMainContainer.renderSpinner(); // Rendering the spinner on the page main container
 		await model.currentLocation();
-		await model.currentWeather(model.state.currentLocation.city, model.state.currentLocation.countryCode);
-		await model.threeHourForecast(model.state.currentLocation.city, model.state.currentLocation.countryCode);
+		await model.currentWeather(model.state.currentLocation.latitude, model.state.currentLocation.longitude);
+		await model.threeHourForecast(model.state.currentLocation.latitude, model.state.currentLocation.latitude);
 		weatherDataOne.render(model.state.weatherInfo);
 		weatherDataTwo.render(model.state.weatherInfo);
 		pageMainContainer.clearSpinner();
@@ -38,11 +38,11 @@ const controlCityAutocomplete = async function () {
 };
 
 // Search to get the weather information
-const controlSelectResults = async function (city, unit) {
+const controlSelectResults = async function (latitude, longitude, unit) {
 	try {
 		pageMainContainer.renderSpinner();
-		await model.currentWeather(city, unit);
-		await model.threeHourForecast(city, unit);
+		await model.currentWeather(latitude, longitude, unit);
+		await model.threeHourForecast(latitude, longitude, unit);
 		weatherDataOne.render(model.state.weatherInfo);
 		weatherDataTwo.render(model.state.weatherInfo);
 		pageMainContainer.clearSpinner();
@@ -55,8 +55,8 @@ const controlSelectResults = async function (city, unit) {
 const controlCFButtons = async function (unit) {
 	try {
 		pageMainContainer.renderSpinner();
-		await model.currentWeather(model.state.weatherInfo.currentWeatherD.city, unit);
-		await model.threeHourForecast(model.state.weatherInfo.currentWeatherD.city, unit);
+		await model.currentWeather(model.state.weatherInfo.currentWeatherD.latitude, unit);
+		await model.threeHourForecast(model.state.weatherInfo.currentWeatherD.longitude, unit);
 		weatherDataOne.render(model.state.weatherInfo);
 		weatherDataTwo.render(model.state.weatherInfo);
 		pageMainContainer.clearSpinner();

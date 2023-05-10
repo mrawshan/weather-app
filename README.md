@@ -24,7 +24,7 @@ The application was constructed using HTML, CSS, Bootstrap, JavaScript, API, and
 
 -  Current weather data: https://openweathermap.org/current
 -  3 hour forecast data: https://openweathermap.org/forecast5
--  Reverse Geocoding: https://www.bigdatacloud.com/
+-  ~~Reverse Geocoding: https://www.bigdatacloud.com/~~
 -  City Suggestion: https://api-ninjas.com/
 -  Weather icons: https://openweathermap.org/weather-conditions
 -  svg Icons: https://icons.getbootstrap.com/
