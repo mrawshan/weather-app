@@ -20,7 +20,7 @@ const controlCLWI = async function () {
 		weatherDataTwo.render(model.state.weatherInfo);
 		pageMainContainer.clearSpinner();
 	} catch (err) {
-		err.message === 'User denied Geolocation' ? pageMainContainer.renderError((err.message = `${err.message}: Please Allow location from your browser! and reload the page`)) : pageMainContainer.renderError(err.message);
+		err.message === 'User denied Geolocation' ? pageMainContainer.renderError((message = `${err.message}: Please Allow location from your browser! and reload the page`)) : pageMainContainer.renderError();
 	}
 };
 
